@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
     <div className="container">
-      <a href="/" className="navbar-brand text-light font-weight-bold">
+      <Link to="/" className="navbar-brand text-light font-weight-bold">
         CRM
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -21,9 +22,9 @@ const Header = () => (
       <div className="collapse navbar-collapse" id="navegacion">
         <ul className="navbar-nav ml-auto text-right">
           <li className="nav-item active">
-            <a href="/" className="btn btn-success">
+            <Link to="client/new" className="btn btn-success">
               Nuevo Cliente
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

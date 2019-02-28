@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo'
 
 import { NEW_CLIENT } from '../mutations'
 
-const NewClient = () => {
+const NewClient = props => {
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
   const [empresa, setEmpresa] = useState('')
@@ -43,7 +43,10 @@ const NewClient = () => {
       <h2 className="text-center">Nuevo Cliente</h2>
       {respuesta}
       <div className="row justify-content-center">
-        <Mutation mutation={NEW_CLIENT}>
+        <Mutation
+          mutation={NEW_CLIENT}
+          onCompleted={() => props.history.push('/')}
+        >
           {crearCliente => (
             <form
               className="col-md-8 m-3"

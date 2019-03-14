@@ -1,13 +1,32 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { Link } from 'react-router-dom'
 
 import { CLIENTS_QUERY } from '../querrys'
 import { DELETE_CLIENT } from '../mutations'
+import Paged from './Paged'
 
-const Contactos = () => {
+const Customers = () => {
+  const [offset, setOffset] = useState(0)
+  const [actual, setActual] = useState(1)
+  const Limite = 5
+
+  const paginaAnterior = () => {
+    setOffset(offset - Limite)
+    setActual(actual - 1)
+  }
+
+  const paginaSiguiente = () => {
+    setOffset(offset + Limite)
+    setActual(actual + 1)
+  }
+
   return (
-    <Query query={CLIENTS_QUERY} pollInterval={5000}>
+    <Query
+      query={CLIENTS_QUERY}
+      pollInterval={5000}
+      variables={{ limit: Limite, offset }}
+    >
       {({ loading, error, data, startPolling, stopPolling }) => {
         if (loading) return 'Cargando.....'
         if (error) return `Error ${error.message}`
@@ -54,6 +73,13 @@ const Contactos = () => {
                 )
               })}
             </ul>
+            <Paged
+              actual={actual}
+              total={data.totalClientes}
+              paginaAnterior={paginaAnterior}
+              paginaSiguiente={paginaSiguiente}
+              Limite={Limite}
+            />
           </Fragment>
         )
       }}
@@ -61,4 +87,4 @@ const Contactos = () => {
   )
 }
 
-export default Contactos
+export default Customers

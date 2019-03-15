@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Mutation } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 
-import { UPDATE_CLIENT } from '../mutations'
+import { UPDATE_CLIENT } from '../../mutations'
 
 const FormEdit = ({ props, cliente, refetch }) => {
   const [nombre, setNombre] = useState(cliente.nombre)

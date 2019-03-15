@@ -25,6 +25,9 @@ const Header = () => (
             <Link to="client/new" className="btn btn-success">
               Nuevo Cliente
             </Link>
+            <Link to="products/new" className="btn btn-success">
+              Nuevo Producto
+            </Link>
           </li>
         </ul>
       </div>

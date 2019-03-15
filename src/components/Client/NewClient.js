@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Mutation } from 'react-apollo'
 
-import { NEW_CLIENT } from '../mutations'
+import { NEW_CLIENT } from '../../mutations'
 
 const NewClient = props => {
   const [nombre, setNombre] = useState('')

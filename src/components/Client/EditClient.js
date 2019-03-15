@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
 
-import { CLIENT_QUERY } from '../querrys'
-import FormEdit from '../components/FormEditClient'
+import { CLIENT_QUERY } from '../../querrys'
+import FormEdit from '../Client/FormEditClient'
 
 const EditClient = props => {
   const { id } = props.match.params

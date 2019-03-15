@@ -2,9 +2,9 @@ import React, { Fragment, useState } from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { Link } from 'react-router-dom'
 
-import { CLIENTS_QUERY } from '../querrys'
-import { DELETE_CLIENT } from '../mutations'
-import Paged from './Paged'
+import { CLIENTS_QUERY } from '../../querrys'
+import { DELETE_CLIENT } from '../../mutations'
+import Paged from '../Paged'
 
 const Customers = () => {
   const [offset, setOffset] = useState(0)

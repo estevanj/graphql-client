@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Mutation } from 'react-apollo'
-import { NEW_CLIENT } from '../../mutations'
+import { NEW_PRODUCT } from '../../mutations'
 const NewClient = props => {
   const [nombre, setNombre] = useState('')
   const [precio, setPrecio] = useState(0)
@@ -18,11 +18,25 @@ const NewClient = props => {
       <h2 className="text-center">Nuevo Producto</h2>
       <div className="row justify-content-center">
         <Mutation
-          mutation={NEW_CLIENT}
-          onCompleted={() => props.history.push('/')}
+          mutation={NEW_PRODUCT}
+          onCompleted={() => props.history.push('/products')}
         >
-          {crearCliente => (
-            <form className="col-md-8">
+          {newProduct => (
+            <form
+              className="col-md-8"
+              onSubmit={e => {
+                e.preventDefault()
+
+                const input = {
+                  nombre,
+                  precio: Number(precio),
+                  stock: Number(stock)
+                }
+                newProduct({
+                  variables: { input }
+                })
+              }}
+            >
               <div className="form-group">
                 <label>Nombre:</label>
                 <input

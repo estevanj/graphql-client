@@ -28,3 +28,17 @@ export const DELETE_CLIENT = gql`
     eliminarCliente(id: $id)
   }
 `
+
+export const NEW_PRODUCT = gql`
+  mutation newProduct($input: ProductoInput) {
+    newProduct(input: $input) {
+      nombre
+    }
+  }
+`
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct($id: ID!) {
+    deleteProduct(id: $id)
+  }
+`
